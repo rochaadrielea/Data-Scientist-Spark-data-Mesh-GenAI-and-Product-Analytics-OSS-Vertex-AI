@@ -1,0 +1,18 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: spark-mesh-gdpr
+          environment-file: env/conda-environment.yml
+          auto-activate-base: false
+      - name: Lint
+        run: |
+          ruff check .
+          black --check .
+      - name: Unit tests
+        run: pytest -q

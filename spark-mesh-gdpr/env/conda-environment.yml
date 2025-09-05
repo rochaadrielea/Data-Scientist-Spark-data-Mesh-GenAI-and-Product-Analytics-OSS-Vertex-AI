@@ -1,0 +1,22 @@
+name: spark-mesh-gdpr
+channels: [conda-forge, defaults]
+dependencies:
+  - python>=3.10
+  - pyspark=3.5.*
+  - pandas
+  - numpy
+  - pyarrow
+  - scikit-learn
+  - xgboost
+  - tensorflow
+  - mlflow
+  - great-expectations
+  - requests
+  - faker
+  - black
+  - ruff
+  - pytest
+  - pip
+  - pip:
+      - openlineage-python
+      - openmetadata-ingestion
